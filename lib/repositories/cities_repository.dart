@@ -1,23 +1,27 @@
-import 'package:cities_of_the_world/core/models/city_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:cities_of_the_world/core/models/cities_model.dart';
 import 'package:cities_of_the_world/core/utils/data_state.dart';
 import 'package:cities_of_the_world/services/cities_api_services.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class CitiesRepository {
   final CitiesApiService _cityApiService = CitiesApiService();
 
-  Future<DataState<List<CityModel>>> getCitiesData() async {
+  Future<DataState<CitiesModel>> getCitiesData({required int page}) async {
     var box = await Hive.openBox('cacheBox');
 
     if (box.containsKey('cityData')) {
-      final List<dynamic> cachedData = box.get('cityData');
-      final parsedData =
-          cachedData.map((json) => CityModel.fromJson(json)).toList();
-      return DataState.completed(parsedData);
+      final cachedData = box.get('cityData');
+      if (cachedData != null) {
+        return DataState.completed(cachedData);
+      }
+
+      return const DataState.completed(null);
     } else {
       try {
-        final List<CityModel> cities = await _cityApiService.fetchCities();
-        await box.put('cityData', cities.map((city) => city.toJson()).toList());
+        final CitiesModel cities =
+            await _cityApiService.fetchCities(page: page);
+        await box.put('cityData', cities);
+
         return DataState.completed(cities);
       } catch (e) {
         return DataState.error('Failed to fetch city data: $e');

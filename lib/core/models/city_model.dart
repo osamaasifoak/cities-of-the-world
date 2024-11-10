@@ -4,7 +4,7 @@ import 'country_model.dart';
 
 part 'city_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 @JsonSerializable()
 class CityModel {
   @HiveField(0)
@@ -14,6 +14,7 @@ class CityModel {
   final String name;
 
   @HiveField(2)
+  @JsonKey(name: 'local_name')
   final String localName;
 
   @HiveField(3)
@@ -23,12 +24,15 @@ class CityModel {
   final double? lng;
 
   @HiveField(5)
+  @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
   @HiveField(6)
+  @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
 
   @HiveField(7)
+  @JsonKey(name: 'country_id')
   final int countryId;
 
   @HiveField(8)
@@ -46,6 +50,7 @@ class CityModel {
     required this.country,
   });
 
-  factory CityModel.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
-  Map<String, dynamic> toJson() => _$CityToJson(this);
+  factory CityModel.fromJson(Map<String, dynamic> json) =>
+      _$CityModelFromJson(json);
+  Map<String, dynamic> toJson() => _$CityModelToJson(this);
 }

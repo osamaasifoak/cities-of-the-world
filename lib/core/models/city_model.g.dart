@@ -6,9 +6,9 @@ part of 'city_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CityAdapter extends TypeAdapter<CityModel> {
+class CityModelAdapter extends TypeAdapter<CityModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   CityModel read(BinaryReader reader) {
@@ -59,7 +59,7 @@ class CityAdapter extends TypeAdapter<CityModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CityAdapter &&
+      other is CityModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -68,26 +68,26 @@ class CityAdapter extends TypeAdapter<CityModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-CityModel _$CityFromJson(Map<String, dynamic> json) => CityModel(
+CityModel _$CityModelFromJson(Map<String, dynamic> json) => CityModel(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      localName: json['localName'] as String,
+      localName: json['local_name'] as String,
       lat: (json['lat'] as num?)?.toDouble(),
       lng: (json['lng'] as num?)?.toDouble(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      countryId: (json['countryId'] as num).toInt(),
+      createdAt: DateTime.parse(json['created_at'] as String),
+      updatedAt: DateTime.parse(json['updated_at'] as String),
+      countryId: (json['country_id'] as num).toInt(),
       country: CountryModel.fromJson(json['country'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CityToJson(CityModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CityModelToJson(CityModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'localName': instance.localName,
+      'local_name': instance.localName,
       'lat': instance.lat,
       'lng': instance.lng,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
-      'countryId': instance.countryId,
+      'created_at': instance.createdAt.toIso8601String(),
+      'updated_at': instance.updatedAt.toIso8601String(),
+      'country_id': instance.countryId,
       'country': instance.country,
     };

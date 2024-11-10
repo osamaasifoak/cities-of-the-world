@@ -6,9 +6,9 @@ part of 'country_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CountryAdapter extends TypeAdapter<CountryModel> {
+class CountryModelAdapter extends TypeAdapter<CountryModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
   CountryModel read(BinaryReader reader) {
@@ -44,7 +44,7 @@ class CountryAdapter extends TypeAdapter<CountryModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CountryAdapter &&
+      other is CountryModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -53,17 +53,17 @@ class CountryAdapter extends TypeAdapter<CountryModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-CountryModel _$CountryFromJson(Map<String, dynamic> json) => CountryModel(
+CountryModel _$CountryModelFromJson(Map<String, dynamic> json) => CountryModel(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       code: json['code'] as String,
-      continentId: (json['continentId'] as num).toInt(),
+      continentId: (json['continent_id'] as num).toInt(),
     );
 
-Map<String, dynamic> _$CountryToJson(CountryModel instance) =>
+Map<String, dynamic> _$CountryModelToJson(CountryModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'code': instance.code,
-      'continentId': instance.continentId,
+      'continent_id': instance.continentId,
     };

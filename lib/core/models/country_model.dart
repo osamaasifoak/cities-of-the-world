@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'country_model.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 2)
 @JsonSerializable()
 class CountryModel {
   @HiveField(0)
@@ -16,6 +16,7 @@ class CountryModel {
   final String code;
 
   @HiveField(3)
+  @JsonKey(name: 'continent_id')
   final int continentId;
 
   CountryModel({
@@ -26,6 +27,6 @@ class CountryModel {
   });
 
   factory CountryModel.fromJson(Map<String, dynamic> json) =>
-      _$CountryFromJson(json);
-  Map<String, dynamic> toJson() => _$CountryToJson(this);
+      _$CountryModelFromJson(json);
+  Map<String, dynamic> toJson() => _$CountryModelToJson(this);
 }
