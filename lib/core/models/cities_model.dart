@@ -22,4 +22,14 @@ class CitiesModel {
   factory CitiesModel.fromJson(Map<String, dynamic> json) =>
       _$CitiesModelFromJson(json);
   Map<String, dynamic> toJson() => _$CitiesModelToJson(this);
+
+  CitiesModel copyWith({
+    List<CityModel>? items,
+    PaginationModel? pagination,
+  }) {
+    return CitiesModel(
+      items: items ?? this.items,
+      pagination: pagination ?? this.pagination,
+    );
+  }
 }

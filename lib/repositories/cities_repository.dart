@@ -8,9 +8,10 @@ class CitiesRepository {
 
   Future<DataState<CitiesModel>> getCitiesData({required int page}) async {
     var box = await Hive.openBox('cacheBox');
+    final cacheKey = 'cityData_$page';
 
-    if (box.containsKey('cityData')) {
-      final cachedData = box.get('cityData');
+    if (box.containsKey(cacheKey)) {
+      final cachedData = box.get(cacheKey);
       if (cachedData != null) {
         return DataState.completed(cachedData);
       }
@@ -20,12 +21,30 @@ class CitiesRepository {
       try {
         final CitiesModel cities =
             await _cityApiService.fetchCities(page: page);
-        await box.put('cityData', cities);
+        await box.put(cacheKey, cities);
 
         return DataState.completed(cities);
       } catch (e) {
         return DataState.error('Failed to fetch city data: $e');
       }
+    }
+  }
+
+  Future<CitiesModel> searchCities({required String query}) async {
+    var box = await Hive.openBox('cacheBox');
+    final cacheKey = 'search_$query';
+
+    if (box.containsKey(cacheKey)) {
+      return box.get(cacheKey);
+    }
+
+    try {
+      final cities = await _cityApiService.searchCities(query: query);
+
+      await box.put(cacheKey, cities);
+      return cities;
+    } catch (e) {
+      throw Exception('Failed to fetch search results');
     }
   }
 }
