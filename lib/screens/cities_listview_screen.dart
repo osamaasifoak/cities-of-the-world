@@ -14,17 +14,15 @@ class CitiesListviewScreen extends StatefulWidget {
 class _CitiesListviewScreenState extends State<CitiesListviewScreen> {
   @override
   Widget build(BuildContext context) {
-    final citiesProvider = context.read<CitiesProvider>();
-
     return Consumer<CitiesProvider>(
-      builder: (context, provider, child) {
-        final cities = provider.searchQuery.isEmpty
-            ? provider.cities.body?.items
-            : provider.searchResults.body?.items;
+      builder: (context, citiesProvider, child) {
+        final cities = citiesProvider.searchQuery.isEmpty
+            ? citiesProvider.cities.body?.items
+            : citiesProvider.searchResults.body?.items;
 
-        final pagination = provider.cities.body?.pagination;
+        final pagination = citiesProvider.cities.body?.pagination;
 
-        if (provider.searchResults.status == Status.loading) {
+        if (citiesProvider.searchResults.status == Status.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );

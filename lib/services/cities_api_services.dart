@@ -13,7 +13,7 @@ class CitiesApiService {
 
       return CitiesModel.fromJson(response.data["data"]);
     } catch (e) {
-      throw Exception('Failed to load cities: $e');
+      throw Exception('Failed to load cities');
     }
   }
 

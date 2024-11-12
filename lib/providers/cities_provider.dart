@@ -40,12 +40,7 @@ class CitiesProvider extends ChangeNotifier {
     searchResults = const DataState.loading();
     notifyListeners();
 
-    try {
-      final results = await _cityRepository.searchCities(query: query);
-      searchResults = DataState.completed(results);
-    } catch (e) {
-      searchResults = DataState.error('Failed to search cities: $e');
-    }
+    searchResults = await _cityRepository.searchCities(query: query);
 
     notifyListeners();
   }

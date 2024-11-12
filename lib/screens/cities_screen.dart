@@ -83,13 +83,13 @@ class _CitiesViewState extends State<CitiesView> {
           ),
         ),
         body: Consumer<CitiesProvider>(
-          builder: (context, cityProvider, child) {
-            switch (cityProvider.cities.status) {
+          builder: (context, citiesProvider, child) {
+            switch (citiesProvider.cities.status) {
               case Status.loading:
                 return const Center(child: CircularProgressIndicator());
 
               case Status.error:
-                return Center(child: Text(cityProvider.cities.message ?? ""));
+                return Center(child: Text(citiesProvider.cities.message ?? ""));
 
               case Status.completed:
               default:
@@ -108,6 +108,7 @@ class _CitiesViewState extends State<CitiesView> {
                     ),
                     const Expanded(
                       child: TabBarView(
+                        physics: NeverScrollableScrollPhysics(),
                         children: [
                           CitiesListviewScreen(),
                           CitiesMapviewScreen(),

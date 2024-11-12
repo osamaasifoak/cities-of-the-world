@@ -25,26 +25,26 @@ class CitiesRepository {
 
         return DataState.completed(cities);
       } catch (e) {
-        return DataState.error('Failed to fetch city data: $e');
+        return DataState.error(e.toString());
       }
     }
   }
 
-  Future<CitiesModel> searchCities({required String query}) async {
+  Future<DataState<CitiesModel>> searchCities({required String query}) async {
     var box = await Hive.openBox('cacheBox');
     final cacheKey = 'search_$query';
 
     if (box.containsKey(cacheKey)) {
-      return box.get(cacheKey);
+      return DataState.completed(box.get(cacheKey));
     }
 
     try {
       final cities = await _cityApiService.searchCities(query: query);
 
       await box.put(cacheKey, cities);
-      return cities;
+      return DataState.completed(cities);
     } catch (e) {
-      throw Exception('Failed to fetch search results');
+      return DataState.error(e.toString());
     }
   }
 }
