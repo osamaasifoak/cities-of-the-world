@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.cities_of_the_world"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -28,6 +28,25 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        def dartEnvironmentVariables = [:]
+
+        if (project.hasProperty("dart-defines")) {
+            def dartDefines = project.property("dart-defines")
+            dartDefines.split(',').each { entry ->
+                def decodedEntry = new String(Base64.decoder.decode(entry))
+                def pair = decodedEntry.split('=')
+                if (pair.size() == 2) {
+                    dartEnvironmentVariables[pair[0]] = pair[1]
+                }
+            }
+        }
+
+        def googleMapKey = dartEnvironmentVariables.containsKey("GOOGLE_MAP_KEY") ? dartEnvironmentVariables["GOOGLE_MAP_KEY"] : "default_google_map_key"
+        resValue "string", "GOOGLE_MAP_KEY", googleMapKey
+        manifestPlaceholders = [
+                GOOGLE_MAP_KEY: googleMapKey,
+        ]
     }
 
     buildTypes {

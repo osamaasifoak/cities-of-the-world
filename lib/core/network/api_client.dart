@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiClient {
   static final ApiClient _instance = ApiClient._internal();
@@ -8,7 +7,7 @@ class ApiClient {
 
   ApiClient._internal() {
     dio = Dio(BaseOptions(
-      baseUrl: dotenv.env['BASE_URL'] ?? "",
+      baseUrl: const String.fromEnvironment("BASE_URL"),
       connectTimeout: const Duration(seconds: 5),
       headers: {
         'Content-Type': 'application/json',
