@@ -3,4 +3,5 @@ class AppStrings {
   static const listView = "List View";
   static const mapView = "Map View";
   static const searchCity = "Search City";
+  static const noCitiesFound = "No cities found";
 }

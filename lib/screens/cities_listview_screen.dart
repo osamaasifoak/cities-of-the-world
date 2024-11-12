@@ -1,4 +1,5 @@
 import 'package:cities_of_the_world/core/utils/data_state.dart';
+import 'package:cities_of_the_world/resources/strings.dart';
 import 'package:provider/provider.dart';
 import 'package:cities_of_the_world/providers/cities_provider.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +25,13 @@ class _CitiesListviewScreenState extends State<CitiesListviewScreen> {
         final pagination = provider.cities.body?.pagination;
 
         if (provider.searchResults.status == Status.loading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         } else if (cities == null || cities.isEmpty) {
-          return const Center(child: Text("No cities found"));
+          return const Center(
+            child: Text(AppStrings.noCitiesFound),
+          );
         }
 
         return NotificationListener<ScrollNotification>(
