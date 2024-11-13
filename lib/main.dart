@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +14,7 @@ import 'package:cities_of_the_world/screens/cities_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
-  setGoogleMapKeyIOS();
+  if (Platform.isIOS) setGoogleMapKeyIOS();
   _registerHiveAdapters();
   runApp(const MyApp());
 }

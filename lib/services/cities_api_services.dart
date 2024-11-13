@@ -1,5 +1,6 @@
 import 'package:cities_of_the_world/core/models/cities_model.dart';
 import 'package:cities_of_the_world/core/network/api_client.dart';
+import 'package:cities_of_the_world/resources/strings.dart';
 
 class CitiesApiService {
   final ApiClient _apiClient = ApiClient();
@@ -13,7 +14,7 @@ class CitiesApiService {
 
       return CitiesModel.fromJson(response.data["data"]);
     } catch (e) {
-      throw Exception('Failed to load cities');
+      throw Exception(AppStrings.failedToLoadCities);
     }
   }
 
@@ -24,7 +25,7 @@ class CitiesApiService {
     if (response.statusCode == 200) {
       return CitiesModel.fromJson(response.data["data"]);
     } else {
-      throw Exception('Failed to fetch search results');
+      throw Exception(AppStrings.failedToFetchCities);
     }
   }
 }
