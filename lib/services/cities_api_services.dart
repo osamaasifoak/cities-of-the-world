@@ -25,7 +25,7 @@ class CitiesApiService {
     if (response.statusCode == 200) {
       return CitiesModel.fromJson(response.data["data"]);
     } else {
-      throw Exception(AppStrings.failedToFetchCities);
+      throw Exception(AppStrings.failedToFetchSearchCities);
     }
   }
 }

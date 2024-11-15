@@ -1,0 +1,283 @@
+{
+    "data": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Kabul",
+          "local_name": "Kabol",
+          "lat": 34.5166667,
+          "lng": 69.1833344,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:40.000000Z",
+          "country_id": 2,
+          "country": {
+            "id": 2,
+            "name": "Afghanistan",
+            "code": "AFG",
+            "created_at": "2024-10-29T14:51:26.000000Z",
+            "updated_at": "2024-10-29T14:51:26.000000Z",
+            "continent_id": 1
+          }
+        },
+        {
+          "id": 2,
+          "name": "Qandahar",
+          "local_name": "Qandahar",
+          "lat": 31.613323,
+          "lng": 65.710126,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:11:48.000000Z",
+          "country_id": 2,
+          "country": {
+            "id": 2,
+            "name": "Afghanistan",
+            "code": "AFG",
+            "created_at": "2024-10-29T14:51:26.000000Z",
+            "updated_at": "2024-10-29T14:51:26.000000Z",
+            "continent_id": 1
+          }
+        },
+        {
+          "id": 3,
+          "name": "Herat",
+          "local_name": "Herat",
+          "lat": 34.34,
+          "lng": 62.1899986,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:40.000000Z",
+          "country_id": 2,
+          "country": {
+            "id": 2,
+            "name": "Afghanistan",
+            "code": "AFG",
+            "created_at": "2024-10-29T14:51:26.000000Z",
+            "updated_at": "2024-10-29T14:51:26.000000Z",
+            "continent_id": 1
+          }
+        },
+        {
+          "id": 4,
+          "name": "Mazar-e-Sharif",
+          "local_name": "Balkh",
+          "lat": null,
+          "lng": null,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-10-29T14:51:27.000000Z",
+          "country_id": 2,
+          "country": {
+            "id": 2,
+            "name": "Afghanistan",
+            "code": "AFG",
+            "created_at": "2024-10-29T14:51:26.000000Z",
+            "updated_at": "2024-10-29T14:51:26.000000Z",
+            "continent_id": 1
+          }
+        },
+        {
+          "id": 5,
+          "name": "Amsterdam",
+          "local_name": "Noord-Holland",
+          "lat": 52.373084,
+          "lng": 4.8999023,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 6,
+          "name": "Rotterdam",
+          "local_name": "Zuid-Holland",
+          "lat": 51.9225,
+          "lng": 4.479167,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 7,
+          "name": "Haag",
+          "local_name": "Zuid-Holland",
+          "lat": 48.15,
+          "lng": 15.5,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:14:58.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 8,
+          "name": "Utrecht",
+          "local_name": "Utrecht",
+          "lat": 52.090833,
+          "lng": 5.1222219,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 9,
+          "name": "Eindhoven",
+          "local_name": "Noord-Brabant",
+          "lat": 51.440833,
+          "lng": 5.477778,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 10,
+          "name": "Tilburg",
+          "local_name": "Noord-Brabant",
+          "lat": 51.5555149,
+          "lng": 5.0913048,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 11,
+          "name": "Groningen",
+          "local_name": "Groningen",
+          "lat": 53.219167,
+          "lng": 6.5666671,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 12,
+          "name": "Breda",
+          "local_name": "Noord-Brabant",
+          "lat": 51.5865631,
+          "lng": 4.7759628,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 13,
+          "name": "Apeldoorn",
+          "local_name": "Gelderland",
+          "lat": 52.21,
+          "lng": 5.9694438,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 14,
+          "name": "Nijmegen",
+          "local_name": "Gelderland",
+          "lat": 51.8425,
+          "lng": 5.852778,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        },
+        {
+          "id": 15,
+          "name": "Enschede",
+          "local_name": "Overijssel",
+          "lat": 52.218333,
+          "lng": 6.895833,
+          "created_at": "2024-10-29T14:51:27.000000Z",
+          "updated_at": "2024-11-06T11:08:49.000000Z",
+          "country_id": 159,
+          "country": {
+            "id": 159,
+            "name": "Netherlands",
+            "code": "NLD",
+            "created_at": "2024-10-29T14:51:27.000000Z",
+            "updated_at": "2024-10-29T14:51:27.000000Z",
+            "continent_id": 2
+          }
+        }
+      ],
+      "pagination": {
+        "current_page": 1,
+        "last_page": 272,
+        "per_page": 15,
+        "total": 4079
+      }
+    },
+    "time": 1731530786
+  }

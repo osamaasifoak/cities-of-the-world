@@ -11,11 +11,14 @@ import 'package:cities_of_the_world/core/models/city_model.dart';
 import 'package:cities_of_the_world/providers/cities_provider.dart';
 import 'package:cities_of_the_world/resources/resources.dart';
 import 'package:cities_of_the_world/screens/cities_screen.dart';
+import 'package:cities_of_the_world/repositories/cities_repository.dart';
 
 void main() async {
   await Hive.initFlutter();
   if (Platform.isIOS) setGoogleMapKeyIOS();
   _registerHiveAdapters();
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -40,7 +43,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<CitiesProvider>(create: (_) => CitiesProvider()),
+        Provider<CitiesRepository>(create: (_) => CitiesRepository()),
+        ChangeNotifierProvider<CitiesProvider>(
+          create: (_) => CitiesProvider(
+            citiesRepository:
+                Provider.of<CitiesRepository>(context, listen: false),
+          ),
+        ),
       ],
       child: MaterialApp(
         title: AppStrings.appName,

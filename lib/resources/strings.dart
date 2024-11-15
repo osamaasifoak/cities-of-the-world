@@ -4,6 +4,7 @@ class AppStrings {
   static const mapView = "Map View";
   static const searchCity = "Search City";
   static const noCitiesFound = "No cities found";
-  static const failedToFetchCities = "Failed to fetch search results";
+  static const failedToFetchSearchCities = "Failed to fetch search results";
   static const failedToLoadCities = "Failed to load cities";
+  static const somethingWentWrong = "Something went wrong";
 }

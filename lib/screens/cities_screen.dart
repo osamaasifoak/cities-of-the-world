@@ -27,7 +27,7 @@ class _CitiesViewState extends State<CitiesView> {
     if (mounted) {
       _searchController.addListener(_onSearchChanged);
       Future.microtask(
-        () => context.read<CitiesProvider>().fetchCities(page: 0),
+        () => context.read<CitiesProvider>().fetchCities(page: 1),
       );
     }
   }
@@ -45,14 +45,16 @@ class _CitiesViewState extends State<CitiesView> {
     _debounce = Timer(
       const Duration(milliseconds: 300),
       () {
-        var cityProvider = context.read<CitiesProvider>();
-        cityProvider.searchCities(query: _searchController.text).then(
+        var citiesProvider = context.read<CitiesProvider>();
+        citiesProvider.searchCities(query: _searchController.text).then(
           (_) {
-            if (cityProvider.searchResults.status == Status.error) {
+            if (citiesProvider.searchResults.status == Status.error) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(cityProvider.searchResults.message ??
-                      "An error occurred"),
+                  content: Text(
+                    citiesProvider.searchResults.message ??
+                        AppStrings.somethingWentWrong,
+                  ),
                   backgroundColor: Colors.red,
                 ),
               );
