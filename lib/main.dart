@@ -19,7 +19,14 @@ void main() async {
   _registerHiveAdapters();
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    Provider<CitiesRepository>(create: (_) => CitiesRepository()),
+    ChangeNotifierProvider<CitiesProvider>(
+      create: (context) => CitiesProvider(
+        citiesRepository: Provider.of<CitiesRepository>(context, listen: false),
+      ),
+    ),
+  ], child: const MyApp()));
 }
 
 void _registerHiveAdapters() {
@@ -41,24 +48,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<CitiesRepository>(create: (_) => CitiesRepository()),
-        ChangeNotifierProvider<CitiesProvider>(
-          create: (_) => CitiesProvider(
-            citiesRepository:
-                Provider.of<CitiesRepository>(context, listen: false),
-          ),
-        ),
-      ],
-      child: MaterialApp(
-        title: AppStrings.appName,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const CitiesView(),
+    return MaterialApp(
+      title: AppStrings.appName,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: const CitiesView(),
     );
   }
 }
