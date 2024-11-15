@@ -2,6 +2,8 @@
 
 This Flutter application displays a list of cities with additional functionality for viewing the cities on a map. It uses the Repository Pattern combined with elements of the MVVM (Model-View-ViewModel) architecture and Provider for state management. The app also demonstrates local caching, efficient API management, and a clean, modularized project structure.
 
+![Demo](<sample.gif>)
+
 ## Project Structure
 
 The project is organized into the following directories and files:
